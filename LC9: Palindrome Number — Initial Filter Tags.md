@@ -12,7 +12,8 @@
 - Reverse **half of the number** and compare it with the remaining half.
 - Stop when the reversed half is greater than or equal to the remaining part.
 
-### Key Logic
+## Key Logic
+
 ```
 while x > reverted:
     reverted = reverted * 10 + x % 10
