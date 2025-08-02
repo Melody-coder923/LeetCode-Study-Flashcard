@@ -45,7 +45,8 @@ return x == reverted or x == reverted // 10
 
 ## Tags
 - Palindrome
-- Reverse Integer: reverted = reverted * 10 + x % 10
-- Optimized Comparison: x == reverted（even length）or x == reverted // 10 (odd length)
-- Edge Case Handling/ Early Return Optimization :if x < 0: return False;  if x % 10 == 0 and x != 0: return False
-
+- Reverse Integer
+- Optimized Comparison
+- Edge Case Handling
+- Early Return Optimization
+- Two Pointer (conceptually)
