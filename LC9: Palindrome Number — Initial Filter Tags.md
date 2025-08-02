@@ -1,23 +1,47 @@
 # LC9: Palindrome Number — Initial Filter Tags
 
 ## Concept
-- Negative numbers cannot be palindrome due to leading ‘-’ sign mismatch.
-- Numbers ending with zero but not zero itself cannot be palindrome because reversed number loses leading zeros.
+- A palindrome number reads the same forward and backward.
+- Must be handled using **integer operations** (not string conversion) to optimize.
 
-## Why
-- Early elimination reduces unnecessary computation.
-- Simplifies subsequent palindrome checks.
+## Problem Constraints
+- Negative numbers cannot be palindromes.
+- Numbers ending in 0 (but not 0 itself) are not palindromes due to leading zero after reversal.
+
+## Core Approach (Optimized Numeric Method)
+- Reverse **half of the number** and compare it with the remaining half.
+- Stop when the reversed half is greater than or equal to the remaining part.
+
+### Key Logic
+```
+while x > reverted:
+    reverted = reverted * 10 + x % 10
+    x //= 10
+return x == reverted or x == reverted // 10
+```
+## Edge Case Handling & Early Return
+- `x < 0` → return False
+- `x % 10 == 0 and x != 0` → return False
+
+## Even vs Odd Length Handling
+- Even length: `x == reverted`
+- Odd length: `x == reverted // 10` (ignore middle digit)
 
 ## Common Examples
-- Negative: -121 → Not palindrome
-- Ends with zero: 10 → Not palindrome
-- Zero itself: 0 → Palindrome
+- `121` → Palindrome  
+- `-121` → Not palindrome  
+- `10` → Not palindrome  
+- `0` → Palindrome
 
-## Interview Key Phrases
-- Quickly filter out impossible cases to improve efficiency.
-- Negative numbers have a sign mismatch when reversed.
-- Trailing zeros in non-zero numbers cause reversed number to differ.
-- Early return for these cases simplifies logic.
+## Time & Space Complexity
+- **Time**: O(log₁₀ n) → Only half of the digits are processed  
+- **Space**: O(1) → Constant space used
+
+## Why This Solution Is Preferred in Interviews
+- No string conversion  
+- Avoids integer overflow (unlike full reversal)  
+- Optimized in both logic and resource usage  
+- Demonstrates mastery of numeric problem-solving
 
 ## Tags
 - Palindrome
