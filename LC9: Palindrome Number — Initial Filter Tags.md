@@ -20,7 +20,8 @@
 - Early return for these cases simplifies logic.
 
 ## Tags
-- Algorithm Fundamentals
 - Palindrome
-- Edge Case Handling
-- Early Return Optimization
+- Reverse Integer: reverted = reverted * 10 + x % 10
+- Optimized Comparison: x == reverted（even length）or x == reverted // 10 (odd length)
+- Edge Case Handling/ Early Return Optimization :if x < 0: return False;  if x % 10 == 0 and x != 0: return False
+
