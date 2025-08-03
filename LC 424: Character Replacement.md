@@ -21,7 +21,7 @@ def characterReplacement(s: str, k: int) -> int:
         count[s[right]] += 1
         max_count = max(max_count, count[s[right]])
 
-        if (right - left + 1) - max_count > k:
+        while (right - left + 1) - max_count > k:
             count[s[left]] -= 1
             left += 1
 
