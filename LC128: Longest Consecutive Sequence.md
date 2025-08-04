@@ -18,6 +18,25 @@ Sorting is straightforward but takes **O(n log n)** time, which does not meet th
 ## Analogy
 Counting longest consecutive sequence is like counting people in lines. To avoid counting the same line multiple times, start counting only from the first person in each line.
 
+```
+class Solution:
+    def longestConsecutive(self, nums: list[int]) -> int:
+        digits = set(nums)
+        maxcount = 0
+        
+        for num in digits:
+            # 只从序列起点开始计数
+            if num - 1 not in digits:
+                current = num
+                count = 1
+                while current + 1 in digits:
+                    current += 1
+                    count += 1
+                maxcount = max(maxcount, count)
+        
+        return maxcount
+```
+
 ## Summary
 1. O(n) requirement suggests using a hash-based data structure.
 2. Use a HashSet for fast lookups.
