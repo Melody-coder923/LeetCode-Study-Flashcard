@@ -11,8 +11,8 @@ class Solution:
         while heap:
             val, i, node = heappop(heap)
             cur.next=node
-            cur=cur.next
-            if cur.next:
+            cur=cur.next  
+            if cur.next:  #也可以是node.next
                 heappush(heap,((node.next.val, i, node.next)))
         return dummy.next
 ```
